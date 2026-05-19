@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     if (type === 'odds') {
       const { sport } = payload
       const key = '15e67228d0c78ef660c09d37a8f5bf6f'
-      const url = 'https://api.the-odds-api.com/v4/sports/' + sport + '/odds/?apiKey=' + key + '&regions=eu,uk&markets=h2h,totals,btts&oddsFormat=decimal&dateFormat=iso&daysFrom=4'
+      const url = 'https://api.the-odds-api.com/v4/sports/' + sport + '/odds/?apiKey=' + key + '&regions=eu,uk&markets=h2h,totals&oddsFormat=decimal&dateFormat=iso&daysFrom=4'
       const response = await fetch(url)
       const data = await response.json()
       if (!response.ok) return res.status(response.status).json({ error: 'Odds API erro: ' + JSON.stringify(data) })
